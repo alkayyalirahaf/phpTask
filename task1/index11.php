@@ -1,43 +1,23 @@
 <?php
-echo " <form method='GET'> 
-<input type ='text' name = 'scores'>Enter scores </input>
-<button type = 'submit'>check</button>
-</form>";
 
+echo "
+<form method='GET'>
+    <input type='number' name='number'>
+    <button type='submit'>Check</button>
+</form>
+";
 
-if(isset($_GET['scores'])){
-    $scores= explode(",",$_GET['scores']);
-    $sum=array_sum($scores);
-    $avg=$sum/count($scores);
+if (isset($_GET['number'])) {
 
-    if($avg<60){
-        echo"F";
+    $number = $_GET['number'];
+
+    if ($number > 0) {
+        echo "Positive";
+    } elseif ($number < 0) {
+        echo "Negative";
+    } else {
+        echo "Zero";
     }
-    elseif($avg<70){
-        echo "D";
-
-    }
-   
-   elseif($avg<80){
-        echo "C";
-
-    }
-      elseif($avg<90){
-        echo "B";
-
-    }
-      elseif($avg<100){
-        echo "A";
-
-    }
-   
-
 }
-
-
-
-
-
-
 
 ?>
